@@ -1,10 +1,10 @@
 {
-  "name": "krlove/code-generator",
+  "name": "samsalvatico/code-generator",
   "description": "Code Generator",
   "license": "MIT",
   "autoload": {
     "psr-4": {
-      "Krlove\\CodeGenerator\\": "src/"
+      "SamSalvatico\\CodeGenerator\\": "src/"
     }
   }
 }
