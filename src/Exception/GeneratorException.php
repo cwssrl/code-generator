@@ -1,10 +1,10 @@
 <?php
 
-namespace Krlove\CodeGenerator\Exception;
+namespace Cws\CodeGenerator\Exception;
 
 /**
  * Class GeneratorException
- * @package Krlove\CodeGenerator\Exception
+ * @package Cws\CodeGenerator\Exception
  */
 class GeneratorException extends \Exception
 {

@@ -1,12 +1,12 @@
 <?php
 
-namespace Krlove\CodeGenerator\Model;
+namespace Cws\CodeGenerator\Model;
 
-use Krlove\CodeGenerator\RenderableModel;
+use Cws\CodeGenerator\RenderableModel;
 
 /**
  * Class PHPClassNamespace
- * @package Krlove\CodeGenerator\Model
+ * @package Cws\CodeGenerator\Model
  */
 class NamespaceModel extends RenderableModel
 {

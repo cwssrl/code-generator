@@ -1,10 +1,10 @@
 <?php
 
-namespace Krlove\CodeGenerator\Model\Traits;
+namespace Cws\CodeGenerator\Model\Traits;
 
 /**
  * Trait StaticModifierTrait
- * @package Krlove\CodeGenerator\Model\Traits
+ * @package Cws\CodeGenerator\Model\Traits
  */
 trait StaticModifierTrait
 {

@@ -1,16 +1,16 @@
 <?php
 
-namespace Krlove\CodeGenerator\Model;
+namespace Cws\CodeGenerator\Model;
 
-use Krlove\CodeGenerator\Model\Traits\AccessModifierTrait;
-use Krlove\CodeGenerator\Model\Traits\DocBlockTrait;
-use Krlove\CodeGenerator\Model\Traits\StaticModifierTrait;
-use Krlove\CodeGenerator\Model\Traits\ValueTrait;
+use Cws\CodeGenerator\Model\Traits\AccessModifierTrait;
+use Cws\CodeGenerator\Model\Traits\DocBlockTrait;
+use Cws\CodeGenerator\Model\Traits\StaticModifierTrait;
+use Cws\CodeGenerator\Model\Traits\ValueTrait;
 
 /**
 
  * Class PHPClassProperty
- * @package Krlove\CodeGenerator\Model
+ * @package Cws\CodeGenerator\Model
  */
 class PropertyModel extends BasePropertyModel
 {
