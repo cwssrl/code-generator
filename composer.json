@@ -1,7 +1,6 @@
 {
   "name": "cwssrl/code-generator",
   "description": "Forked Code Generator",
-  "version": "1.0.1",
   "license": "MIT",
   "autoload": {
     "psr-4": {

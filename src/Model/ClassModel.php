@@ -50,6 +50,11 @@ class ClassModel extends RenderableModel
     protected $methods = [];
 
     /**
+     * @var array
+     */
+    protected $methodNames = [];
+
+    /**
      * {@inheritDoc}
      */
     public function toLines()
@@ -217,7 +222,17 @@ class ClassModel extends RenderableModel
     {
         $this->methods[] = $method;
 
+        $this->methodNames[] = $method->getName();
+
         return $this;
+    }
+
+    /**
+     * @return array
+     */
+    public function getMethodNames()
+    {
+        return $this->methodNames;
     }
 
     /**
