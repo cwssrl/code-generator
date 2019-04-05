@@ -131,7 +131,6 @@ class VirtualPropertyModel extends BasePropertyModel
     public function setNullable($nullable)
     {
         $this->nullable = $nullable;
-
         return $this;
     }
 

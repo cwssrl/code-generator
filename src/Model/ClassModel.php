@@ -93,17 +93,29 @@ class ClassModel extends RenderableModel
         $content = [];
 
         if (count($this->properties)) {
+            $required = [];
             $content[] = "@OA\Schema(";
+            $content[] = '@OA\Xml(name="' . $this->name->getName() . '"), ';
             foreach ($this->properties as $property) {
                 if ($property instanceof VirtualPropertyModel) {
                     $currentProp = $property->toLines();
                     if (!empty($currentProp)) {
                         $content[] = $currentProp;
+                        $propName = $property->getName();
+                        if (!$property->getNullable() && $propName !== "id") {
+                            array_push($required, $propName);
+                        }
                     }
                 }
             }
-            $index = count($content) - 1;
-            $content[$index] = rtrim($content[$index], ",");
+            if (count($required)) {
+                $reqString = ('"' . implode('","', $required) . '"');
+                $reqString = 'required={' . $reqString . '}';
+                $content[] = $reqString;
+            } else {
+                $index = count($content) - 1;
+                $content[$index] = rtrim($content[$index], ",");
+            }
             $content[] = ")";
         }
 
