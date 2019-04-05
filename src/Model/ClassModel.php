@@ -86,6 +86,70 @@ class ClassModel extends RenderableModel
     }
 
     /**
+     * Convert virtual properties and methods to DocBlock content
+     */
+    protected function prepareDocBlock()
+    {
+        $content = [];
+
+        if (count($this->properties)) {
+            $content[] = "@OA\Schema(";
+            foreach ($this->properties as $property) {
+                if ($property instanceof VirtualPropertyModel) {
+                    $currentProp = $property->toLines();
+                    if (!empty($currentProp)) {
+                        $content[] = $currentProp;
+                    }
+                }
+            }
+            $index = count($content) - 1;
+            $content[$index] = rtrim($content[$index], ",");
+            $content[] = ")";
+        }
+
+        foreach ($this->methods as $method) {
+            if ($method instanceof VirtualMethodModel) {
+                $content[] = $method->toLines();
+            }
+        }
+
+        if ($content) {
+            if ($this->docBlock === null) {
+                $this->docBlock = new DocBlockModel();
+            }
+
+            $this->docBlock->addContent($content);
+        }
+    }
+
+    /**
+     * @param array $lines
+     */
+    protected function processProperties(&$lines)
+    {
+        $properties = array_filter($this->properties, function ($property) {
+            return !$property instanceof VirtualPropertyModel;
+        });
+        if (count($properties) > 0) {
+            $lines[] = $this->renderArrayLn($properties, 4, str_repeat(PHP_EOL, 2));
+        }
+    }
+
+    /**
+     * @param array $lines
+     * @throws GeneratorException
+     */
+    protected function processMethods(&$lines)
+    {
+        $methods = array_filter($this->methods, function ($method) {
+            return !$method instanceof VirtualMethodModel;
+        });
+        if (count($methods) > 0) {
+            $lines[] = $this->renderArray($methods, 4, str_repeat(PHP_EOL, 2));
+        }
+    }
+
+    /**
      * @return ClassNameModel
      */
     public function getName()
@@ -233,60 +297,5 @@ class ClassModel extends RenderableModel
     public function getMethodNames()
     {
         return $this->methodNames;
-    }
-
-    /**
-     * Convert virtual properties and methods to DocBlock content
-     */
-    protected function prepareDocBlock()
-    {
-        $content = [];
-
-        foreach ($this->properties as $property) {
-            if ($property instanceof VirtualPropertyModel) {
-                $content[] = $property->toLines();
-            }
-        }
-
-        foreach ($this->methods as $method) {
-            if ($method instanceof VirtualMethodModel) {
-                $content[] = $method->toLines();
-            }
-        }
-
-        if ($content) {
-            if ($this->docBlock === null) {
-                $this->docBlock = new DocBlockModel();
-            }
-
-            $this->docBlock->addContent($content);
-        }
-    }
-
-    /**
-     * @param array $lines
-     */
-    protected function processProperties(&$lines)
-    {
-        $properties = array_filter($this->properties, function ($property) {
-            return !$property instanceof VirtualPropertyModel;
-        });
-        if (count($properties) > 0) {
-            $lines[] = $this->renderArrayLn($properties, 4, str_repeat(PHP_EOL, 2));
-        }
-    }
-
-    /**
-     * @param array $lines
-     * @throws GeneratorException
-     */
-    protected function processMethods(&$lines)
-    {
-        $methods = array_filter($this->methods, function ($method) {
-            return !$method instanceof VirtualMethodModel;
-        });
-        if (count($methods) > 0) {
-            $lines[] = $this->renderArray($methods, 4, str_repeat(PHP_EOL, 2));
-        }
     }
 }
