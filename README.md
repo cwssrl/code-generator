@@ -1,5 +1,7 @@
 # Code generator
 
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=cwssrl_code-generator&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=cwssrl_code-generator) [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=cwssrl_code-generator&metric=alert_status)](https://sonarcloud.io/dashboard?id=cwssrl_code-generator)
+
 Code generator is a PHP tool that provides an interface for generating code. Currently only PHP class generation is supported.
 
 ## Installation
