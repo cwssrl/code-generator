@@ -1,4 +1,5 @@
 .idea
-index.php
-test.php
 vendor
+composer.lock
+*.php_cs.cache
+*.phpunit.result.cache
