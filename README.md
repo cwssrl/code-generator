@@ -117,3 +117,28 @@ class TestClass extends BaseTestClass implements \NamespaceOne\InterfaceOne, Int
     }
 }
 ```
+
+## Contributing
+
+Please see [CONTRIBUTING](CONTRIBUTING.md) for details.
+
+## Testing
+
+``` bash
+composer test
+```
+
+## Changelog
+
+Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
+
+## Credits
+
+- [Samuele Salvatico](https://www.linkedin.com/in/samuele-salvatico-89527464/)
+- [Andrea Romanello](https://www.linkedin.com/in/andrea-romanello/)
+
+This package is heavily based on [Cws Code Generator](https://github.com/cwssrl/code-generator) that is a fork of the [krlove/code-generator](https://github.com/krlove/code-generator) package
+
+## License
+
+The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
